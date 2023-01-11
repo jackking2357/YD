@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>yudian-parent</artifactId>
+        <groupId>com.yudian</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>yudian-service</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.yudian</groupId>
+            <artifactId>yudian-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yudian</groupId>
+            <artifactId>yudian-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yudian</groupId>
+            <artifactId>yudian-auth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.yudian</groupId>
+            <artifactId>yudian-common-redis</artifactId>
+        </dependency>
+        <!-- springboot 2.3.0 后没有带上validation -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-open</artifactId>
+            <version>4.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-miniapp</artifactId>
+            <version>4.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.huifu.adapay</groupId>
+            <artifactId>adapay-java-sdk</artifactId>
+            <version>1.2.10</version>
+        </dependency>
+    </dependencies>
+
+</project>

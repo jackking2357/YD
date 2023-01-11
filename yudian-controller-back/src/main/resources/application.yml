@@ -1,0 +1,90 @@
+server:
+  port: 10000
+  servlet:
+    context-path: /yudian-back
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  profiles:
+    active: ${activeProfile:dev}
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: yudian-back
+  # 文件大小上传配置
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+  session:
+    store-type: redis
+  cache:
+    type: redis   # 指定使用的缓存类型
+
+#自定义某些缓存空间的过期时间
+cache:
+  ttlMap: { "item": 60 }
+
+mybatis-plus:
+  #configuration:
+  #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: id_worker
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    com.yudian.www.mapper: debug
+
+# Sa-Token配置
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: Authorization
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: 86400
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: 172800
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: false
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: true
+  # 是否尝试从请求体里读取token
+  is-read-body: false
+  # 是否尝试从header里读取token
+  is-read-head: true
+  # 是否尝试从cookie里读取token
+  is-read-cookie: false
+  # token风格
+  token-style: simple-uuid
+  # 是否输出操作日志
+  is-log: true
+  # jwt秘钥
+  jwt-secret-key: asdaasd11asifhueuiwdyurfxewbfjsdafjk
+
+# 防止XSS攻击
+xss:
+  # 过滤开关
+  enabled: false
+  # 排除链接（多个用逗号分隔）
+  excludes: /system/notice/*
+  # 匹配链接
+  urlPatterns: /system/*,/monitor/*
+
+#微信公众号相关配置
+weixin:
+  applets:
+    #公司小程序id
+    #公司小程序秘钥
+    app_id:
+    app_secret:
+    page_path:
+    use_path:
+  gzh:
+    app_id:
+    app_secret:
+    token:
+    aes_key:
+    pay_notify_url:

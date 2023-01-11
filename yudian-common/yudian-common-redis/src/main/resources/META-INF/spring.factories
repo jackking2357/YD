@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.yudian.common.redis.RedisConfig,\
+  com.yudian.common.redis.utils.RedisUtils,\
+  com.yudian.common.redis.redisson.RedissonConfig,\
+  com.yudian.common.redis.cache.RedisCacheConfig,\
+  com.yudian.common.redis.cache.SpringCacheProperties
+
