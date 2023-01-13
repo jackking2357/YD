@@ -2,12 +2,11 @@ package com.yudian.www.service.robot.param;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.yudian.www.base.BaseParam;
-
-import java.util.Set;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import java.util.Set;
 
 /**
  * 机器人订单
@@ -21,6 +20,9 @@ public class GetRobotOrderListParam extends BaseParam {
 
     @ApiModelProperty(value = "机器人订单id列表", required = false, position = 1)
     private Set<Long> robotOrderIds;
+
+    @ApiModelProperty(value = "平台用户id", hidden = true)
+    private Long accountId;
 
     private String phoneNumber;
 

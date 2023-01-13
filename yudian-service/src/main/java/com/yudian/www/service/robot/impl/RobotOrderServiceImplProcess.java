@@ -136,8 +136,10 @@ public class RobotOrderServiceImplProcess implements IRobotOrderServiceProcess {
             }
         }
         Integer orderStatus = getRobotOrderListParam.getOrderStatus();
+        Long accountId = getRobotOrderListParam.getAccountId();
 
         LambdaQueryWrapper<RobotOrder> queryWrapper = new QueryWrapper<RobotOrder>().lambda();
+        queryWrapper.eq(null != accountId, RobotOrder::getAccountId, accountId);
         queryWrapper.in(null != accountIds && !accountIds.isEmpty(), RobotOrder::getAccountId, accountIds);
         queryWrapper.eq(null != orderStatus, RobotOrder::getOrderStatus, orderStatus);
         queryWrapper
@@ -182,7 +184,7 @@ public class RobotOrderServiceImplProcess implements IRobotOrderServiceProcess {
         robotOrderService.update(Wrappers.<RobotOrder>lambdaUpdate()
                 .set(RobotOrder::getOrderStatus, 3)
                 .set(RobotOrder::getPayStatus, 4)
-                .in(RobotOrder::getOrderStatus, Arrays.asList(1, 2))
+                .in(RobotOrder::getOrderStatus, Arrays.asList(1, 4))
                 .in(RobotOrder::getRobotOrderId, Arrays.asList(robotOrderIds))
         );
     }

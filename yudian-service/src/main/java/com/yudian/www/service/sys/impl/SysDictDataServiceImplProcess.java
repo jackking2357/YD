@@ -25,7 +25,6 @@ import java.util.stream.Collectors;
 /**
  * 字典数据表 服务实现类-流程
  *
-
  * @since 2022-02-15
  */
 @Service
@@ -176,7 +175,7 @@ public class SysDictDataServiceImplProcess implements ISysDictDataServiceProcess
         int count = sysDictDataService.count(Wrappers.<SysDictData>lambdaQuery()
                 .ne(null != aeSysDictDataParam.getDictDataId(), SysDictData::getDictDataId, aeSysDictDataParam.getDictDataId())
                 .eq(SysDictData::getDictKey, aeSysDictDataParam.getDictKey())
-                .eq(SysDictData::getDictValue, aeSysDictDataParam.getDictValue()));
+                .eq(SysDictData::getDictLabel, aeSysDictDataParam.getDictLabel()));
         if (0 != count) {
             throw new ServiceException("该类型下已存在相同字典键值，请更换");
         }
